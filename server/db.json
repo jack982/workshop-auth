@@ -1,0 +1,21 @@
+{
+  "login": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+    "displayName": "Mario Rossi",
+    "role": "admin"
+  },
+  "catalog": [
+    {
+      "id": 1, "productName": "IPhone X"
+    },
+    {
+      "id": 2, "productName": "One Plus 7"
+    },
+    {
+      "id": 3, "productName": "Samsung S10"
+    },
+    {
+      "id": 4, "productName": "Pocophone"
+    }
+  ]
+}
