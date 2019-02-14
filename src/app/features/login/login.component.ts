@@ -6,8 +6,12 @@ import { AuthService } from 'src/app/core/services/auth.service';
   template: `
   <form #f="ngForm" (submit)="auth.login(f.value)">
     <input type="text" required [ngModel] name="user" placeholder="user (anything)">
-    <input type="password" required [ngModel] name="pass" placeholder="password (anything)">
-    <button type="submit" *ngIf="f.valid">SIGN-IN</button>
+    <input type="password" required [ngModel] name="password" placeholder="password (anything)">
+    <button type="submit" class="btn btn-primary"
+     [disabled]="!f.valid"
+    >
+      <i class="fa fa-lock"></i> Login
+    </button>
 </form>
   `,
   styles: []

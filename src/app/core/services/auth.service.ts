@@ -33,6 +33,10 @@ export class AuthService {
     return this.data ? !!this.data.token : '';
   }
 
+  logout() {
+    this.data = null;
+  }
+
 
 
 

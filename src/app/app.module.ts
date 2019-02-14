@@ -10,6 +10,7 @@ import { CatalogComponent } from './features/catalog/catalog.component';
 import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { AuthService } from './core/services/auth.service';
+import { CatalogService } from './features/catalog/services/catalog.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AuthService } from './core/services/auth.service';
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService, CatalogService
   ],
   bootstrap: [AppComponent]
 })
