@@ -21,6 +21,10 @@ import { AuthService } from '../services/auth.service';
           <a class="nav-link" >Contacts</a>
       </li>
       <li
+        class="nav-item" routerLink="/settings" routerLinkActive="active">
+          <a class="nav-link" >Settings</a>
+      </li>
+      <li
           class="nav-item pull-right"
           (click)="auth.logout()">
           <a class="nav-link">Logout</a>
@@ -39,6 +43,7 @@ export class NavbarComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
+
   }
 
 }

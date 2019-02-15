@@ -11,6 +11,7 @@ import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { AuthInterceptor } from './core/services/auth.interceptor';
 import { IfLoggedDirective } from './core/directives/if-logged.directive';
+import { SettingsComponent } from './features/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { IfLoggedDirective } from './core/directives/if-logged.directive';
     CatalogComponent,
     ContactsComponent,
     NavbarComponent,
-    IfLoggedDirective
+    IfLoggedDirective,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
