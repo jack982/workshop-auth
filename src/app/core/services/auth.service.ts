@@ -4,7 +4,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
   data: Auth;
@@ -21,8 +23,9 @@ export class AuthService {
 
       this.http.get<Auth>(`${environment.REST_API_URL}/login`, { params })
         .subscribe(
-          res => {
+          (res: Auth) => {
             this.data = res;
+            this.saveToLocalStorage( res );
             this.router.navigateByUrl('catalog');
           },
           err => this.error = err
@@ -30,13 +33,36 @@ export class AuthService {
   }
 
   isLogged() {
-    return this.data ? !!this.data.token : '';
+    return !!this.getTokenFromLocalStorage();
+    // return this.data ? !!this.data.token : '';
   }
 
   logout() {
     this.data = null;
+    localStorage.clear();
+    this.router.navigateByUrl('login');
   }
 
+
+  saveToLocalStorage( authData: Auth ) {
+    if (window.localStorage) {
+      window.localStorage.setItem('token', authData.token);
+    }
+    return null;
+  }
+
+  getTokenFromLocalStorage() {
+    if ( window.localStorage ) {
+      return window.localStorage.getItem('token');
+    }
+    return this.data.token;
+  }
+
+  autoLogin() {
+    if ( this.getTokenFromLocalStorage() ) {
+      this.router.navigateByUrl('catalog');
+    }
+  }
 
 
 

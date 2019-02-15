@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +9,8 @@ import { LoginComponent } from './features/login/login.component';
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
-import { AuthService } from './core/services/auth.service';
-import { CatalogService } from './features/catalog/services/catalog.service';
+import { AuthInterceptor } from './core/services/auth.interceptor';
+import { IfLoggedDirective } from './core/directives/if-logged.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { CatalogService } from './features/catalog/services/catalog.service';
     LoginComponent,
     CatalogComponent,
     ContactsComponent,
-    NavbarComponent
+    NavbarComponent,
+    IfLoggedDirective
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,7 @@ import { CatalogService } from './features/catalog/services/catalog.service';
     AppRoutingModule
   ],
   providers: [
-    AuthService, CatalogService
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

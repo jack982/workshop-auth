@@ -13,22 +13,14 @@ import { AuthService } from '../services/auth.service';
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li
-        *ngIf="auth.isLogged()"
         class="nav-item" routerLink="/catalog" routerLinkActive="active">
           <a class="nav-link">Catalog</a>
       </li>
       <li
-        *ngIf="auth.isLogged()"
         class="nav-item" routerLink="/contacts" routerLinkActive="active">
           <a class="nav-link" >Contacts</a>
       </li>
       <li
-        *ngIf="!auth.isLogged()"
-          class="nav-item pull-right" routerLink="/login" routerLinkActive="active">
-          <a class="nav-link">Login</a>
-      </li>
-      <li
-        *ngIf="auth.isLogged()"
           class="nav-item pull-right"
           (click)="auth.logout()">
           <a class="nav-link">Logout</a>
@@ -36,7 +28,7 @@ import { AuthService } from '../services/auth.service';
     </ul>
   </div>
   <span class="navbar-text" *ngIf="auth.isLogged()">
-    {{ auth.data.displayName }}
+    <strong>{{ auth.data.displayName }}</strong>
   </span>
 </nav>
   `,

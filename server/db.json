@@ -4,18 +4,18 @@
     "displayName": "Mario Rossi",
     "role": "admin"
   },
-  "catalog": [
+  "products": [
     {
-      "id": 1, "productName": "IPhone X"
+      "id": 1, "productName": "IPhone X", "os": "Mac OS"
     },
     {
-      "id": 2, "productName": "One Plus 7"
+      "id": 2, "productName": "One Plus 7", "os": "Android"
     },
     {
-      "id": 3, "productName": "Samsung S10"
+      "id": 3, "productName": "Samsung S10", "os": "Android"
     },
     {
-      "id": 4, "productName": "Pocophone"
+      "id": 4, "productName": "Pocophone", "os": "Android"
     }
   ]
 }

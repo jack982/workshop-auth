@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.autoLogin();
   }
 
 }
